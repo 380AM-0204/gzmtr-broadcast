@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州地铁报站模拟器</title>
+    <style>
+        .center-link {
+            text-align: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /*
+            .dropdown-content a {
+            color: rgb(3, 167, 243);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        */
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .my-link {
+            font-size: 16px;
+            /* 或者你想要的任何大小 */
+        }
+
+
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+        }
+
+
+        p {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            /* 移除默认的下划线 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* 添加下划线 */
+        }
+
+        @font-face {
+            font-family: 'MyCustomFont';
+            /* 定义字体名称 */
+            src: url('https://vip.123pan.cn/1829011389/azl/%E6%96%B9%E6%AD%A3%E5%83%8F%E7%B4%A016.TTF') format('truetype');
+            /* 指定字体文件路径和格式 */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        marquee.zimu {
+            background: #000000;
+        }
+    </style>
+
+    <script>
+        // 获取按钮和下拉框元素  
+        var dropdown = document.getElementsByClassName("dropdown")[0];
+        var dropdownContent = document.getElementById("myDropdown");
+
+        // 添加点击事件到按钮上，展开下拉框  
+        dropdown.addEventListener("click", function () {
+            dropdownContent.style.display = "block";
+        });
+
+        function playAudio() {
+            var audio = document.getElementById('audio');
+            audio.play();
+            document.getElementById("led").innerText = "终点站：广州南站 This train is bound for Guangzhou South Station";
+        }
+        //分割线
+        //以下用于播放音频，如有新的音频需要播放，新增一个并修改数字，修改数字一般是+1
+        function playAudio1() {
+            var audio1 = document.getElementById('audio1');
+            audio1.play();
+            document.getElementById("led").innerText = "下一站：黄边 The next station is Huangbian";
+        }
+
+        function playAudio2() {
+            var audio2 = document.getElementById('audio2');
+            audio2.play();
+            document.getElementById("led").innerText = "下一站：江夏 The next station is Jiangxia";
+        }
+        function playAudio3() {
+            var audio2 = document.getElementById('audio3');
+            audio3.play();
+            document.getElementById("led").innerText = "下一站：萧岗 The next station is Xiao-gang";
+        }
+        function playAudio4() {
+            var audio4 = document.getElementById('audio4');
+            audio4.play();
+            document.getElementById("led").innerText = "下一站：白云文化广场 The next station is Baiyun Cultural Square ";
+        }
+        function playAudio5() {
+            var audio5 = document.getElementById('audio5');
+            audio5.play();
+            document.getElementById("led").innerText = "下一站：白云公园 The next station is Baiyun Park";
+        }
+        function playAudio6() {
+            var audio6 = document.getElementById('audio6');
+            audio6.play();
+            document.getElementById("led").innerText = "下一站：飞翔公园 The next station is Feixiang Park";
+        }
+        function playAudio7() {
+            var audio7 = document.getElementById('audio7');
+            audio7.play();
+            document.getElementById("led").innerText = "下一站：三元里 The next station is Sanyuanli";
+        }
+        function playAudio8() {
+            var audio8 = document.getElementById('audio8');
+            audio8.play();
+            document.getElementById("led").innerText = "下一站：广州火车站，可换乘5号线 The next station is Guangzhou Railway Station,the interchange with Line 5";
+        }
+        function playAudio9() {
+            var audio9 = document.getElementById('audio9');
+            audio9.play();
+            document.getElementById("led").innerText = "下一站：越秀公园 The next station is Yuexiu Park";
+        }
+        function playAudio10() {
+            var audio10 = document.getElementById('audio10');
+            audio10.play();
+            document.getElementById("led").innerText = "下一站：纪念堂 The next station is Sun Yatsen Memorial Hall";
+        }
+        function playAudio11() {
+            var audio11 = document.getElementById('audio11');
+            audio11.play();
+            document.getElementById("led").innerText = "下一站：公园前，可换乘1号线 The next station is Gongyuanqian,the interchange with Line 1";
+        }
+        function playAudio12() {
+            var audio12 = document.getElementById('audio12');
+            audio12.play();
+            document.getElementById("led").innerText = "下一站：海珠广场，可换乘6号线 The next station is Haizhu Square,the interchange with Line 6";
+        }
+        function playAudio13() {
+            var audio13 = document.getElementById('audio13');
+            audio13.play();
+            document.getElementById("led").innerText = "下一站：市二宫 The next station is The 2nd Workers' Cultural Palace Station";
+        }
+        function playAudio14() {
+            var audio14 = document.getElementById('audio14');
+            audio14.play();
+            document.getElementById("led").innerText = "下一站：江南西 The next station is Jiangnanxi";
+        }
+        function playAudio15() {
+            var audio15 = document.getElementById('audio15');
+            audio15.play();
+            document.getElementById("led").innerText = "下一站：昌岗，可换乘8号线 The next station is Changgang,the interchange with Line 8";
+        }
+        function playAudio16() {
+            var audio16 = document.getElementById('audio16');
+            audio16.play();
+            document.getElementById("led").innerText = "终点站：广州南站 This train is bound for Guangzhou South Railway Station";
+        }
+        function playAudio17() {
+            var audio17 = document.getElementById('audio17');
+            audio17.play();
+            document.getElementById("led").innerText = "尊敬的乘客，现在是临时停车，列车设备安全，请您耐心等候，为确保您和他人的安全，请勿触动车上的设备，请勿靠近车门，感谢您的谅解与合作";
+        }
+        function playAudio18() {
+            var audio17 = document.getElementById('audio18');
+            audio18.play();
+            document.getElementById("led").innerText = "下一站：江泰路 The next station is Jiangtai Lu";
+        }
+        function playAudio19() {
+            var audio17 = document.getElementById('audio19');
+            audio19.play();
+        }
+        function playAudio20() {
+            var audio20 = document.getElementById('audio20');
+            audio20.play();
+        }
+        function playAudio21() {
+            var audio21 = document.getElementById('audio21');
+            audio21.play();
+        }
+        function playAudio22() {
+            var audio22 = document.getElementById('audio22');
+            audio22.play();
+        }
+        function playAudio23() {
+            var audio23 = document.getElementById('audio23');
+            audio23.play();
+        }
+        function playAudio24() {
+            var audio24 = document.getElementById('audio24');
+            audio24.play();
+        }
+        function playAudio25() {
+            var audio25 = document.getElementById('audio25');
+            audio25.play();
+        }
+        function playAudio26() {
+            var audio26 = document.getElementById('audio26');
+            audio26.play();
+        }
+        function playAudio27() {
+            var audio27 = document.getElementById('audio27');
+            audio27.play();
+        }
+        function playAudio28() {
+            var audio28 = document.getElementById('audio28');
+            audio28.play();
+        }
+
+
+
+
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "httpss://hm.baidu.com/hm.js?83ab0d77ef66329a8336af52b80a2f83";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+
+</head>
+
+<body style="padding:5% 3% 3% 3%;background-image:url(https://vip.123pan.cn/1829011389/azl/logo.jpeg);">
+
+
+    <h2>广州地铁报站模拟器</h2>
+    <p style="font-size: 50px;" color="#FF0000">
+        <marquee scrollamount="13" scrolldelay="40" class="zimu" white-space: pre-line
+            style="font-family: 'MyCustomFont', sans-serif;"><span style="color:red;" id="led">欢迎乘坐广州地铁！ Welcome to
+                Guangzhou
+                Metro!</span></marquee>
+    </p>
+    <div class="dropdown">
+        <button class="dropbtn">选择路线</button>
+        <div id="myDropdown" class="dropdown-content">
+            <!--<br>用于换行-->
+            <a href="/l1" style="color: gold;">1号线</a><br>
+            <a href="/l2" style="color: rgb(3, 184, 255);">2号线</a><br>
+            <a href="/l3" style="color: rgb(255, 146, 3);">3号线</a><br>
+            <!--选择线路下拉组合框-->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">选择交路</button>
+        <div id="myDropdown" class="dropdown-content">
+            <!--<br>用于换行-->
+            <a href="" style="color: rgb(0, 0, 0);">嘉禾望岗-广州南站</a><br>
+            <a href="#" onclick="alert('非常抱歉，本交路尚未开发！')" style="color: rgb(0, 0, 0);">广州南站-嘉禾望岗</a><br>
+            <!--选择线路下拉组合框-->
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--<br>用于换行-->
+    <button type="button"><a href="https://vip.123pan.cn/1829011389/azl/gb/gd"
+            style="color: #000000;text-decoration: none;  ">更多广播</a></button>
+    <button type="button"><a href="#" onclick="playAudio16()"
+            style="color: #000000;text-decoration: none;  ">关门铃声</a></button>
+    <button type="button"><a href="#" onclick="playAudio17()"
+            style="color: #000000;text-decoration: none;  ">临时停车</a></button><br>
+    <div class="dropdown">
+        <button class="dropbtn">选择区间</button>
+        <br>
+        <div id="myDropdown" class="dropdown-content">
+            <!--<br>用于换行-->
+            <!--站点-->
+            <a href="#" onclick="playAudio1()" style="font-size: 16px;color: #000000;">嘉禾望岗-黄边</a><br>
+            <a href="#" onclick="playAudio2()" style="font-size: 16px;color: #000000;">黄边-江夏</a><br>
+            <a href="#" onclick="playAudio3()" style="font-size: 16px;color: #000000;">江夏-萧岗</a><br>
+            <a href="#" onclick="playAudio4()" style="font-size: 16px;color: #000000;">萧岗-白云文化广场</a><br>
+            <a href="#" onclick="playAudio5()" style="font-size: 16px;color: #000000;">白云文化广场-白云公园</a><br>
+            <a href="#" onclick="playAudio6()" style="font-size: 16px;color: #000000;">白云公园-飞翔公园</a><br>
+            <a href="#" onclick="playAudio7()" style="font-size: 16px;color: #000000;">飞翔公园-三元里</a><br>
+            <a href="#" onclick="playAudio8()" style="font-size: 16px;color: #000000;">三元里-广州火车站</a><br>
+            <a href="#" onclick="playAudio9()" style="font-size: 16px;color: #000000;">广州火车站-越秀公园</a><br>
+            <a href="#" onclick="playAudio10()" style="font-size: 16px;color: #000000;">越秀公园-纪念堂</a><br>
+            <a href="#" onclick="playAudio11()" style="font-size: 16px;color: #000000;">纪念堂-公园前</a><br>
+            <a href="#" onclick="playAudio12()" style="font-size: 16px;color: #000000;">公园前-海珠广场</a><br>
+            <a href="#" onclick="playAudio13()" style="font-size: 16px;color: #000000;">海珠广场-市二宫</a><br>
+            <a href="#" onclick="playAudio14()" style="font-size: 16px;color: #000000;">市二宫-江南西</a><br>
+            <a href="#" onclick="playAudio15()" style="font-size: 16px;color: #000000;">江南西-昌岗</a><br>
+            <a href="#" onclick="playAudio18()" style="font-size: 16px;color: #000000;">昌岗-江泰路</a><br>
+            <a href="#" onclick="playAudio19()" style="font-size: 16px;color: #000000;">江泰路-东晓南</a><br>
+            <a href="#" onclick="playAudio20()" style="font-size: 16px;color: #000000;">东晓南-南洲</a><br>
+            <a href="#" onclick="playAudio21()" style="font-size: 16px;color: #000000;">南洲-洛溪</a><br>
+            <a href="#" onclick="playAudio22()" style="font-size: 16px;color: #000000;">洛溪-南浦</a><br>
+            <a href="#" onclick="playAudio26()" style="font-size: 16px;color: #000000;">南浦-会江</a><br>
+            <a href="#" onclick="playAudio27()" style="font-size: 16px;color: #000000;">会江-石壁</a><br>
+            <a href="#" onclick="playAudio28()" style="font-size: 16px;color: #000000;">石壁-广州南站</a><br>
+            <!--选择线路下拉组合框-->
+        </div>
+    </div>
+    <!--以下为播放音频区域；<br>用于换行-->
+    <br>
+    <button id="stopAllAudio">停止播放</button>
+    <br>
+    <button id="pauseAllAudio">暂停音频</button>
+    <br>
+    <button id="resumeAllAudio">恢复音频</button>
+    <!--上面的用于停止播放音频-->
+    <audio id="audio1" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站黄边.mp3" preload="auto"></audio>
+    <audio id="audio2" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站江夏.mp3" preload="auto"></audio>
+    <audio id="audio3" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站萧岗.mp3" preload="auto"></audio>
+    <audio id="audio4" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站白云文化广场.mp3" preload="auto"></audio>
+    <audio id="audio5" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站白云公园.mp3" preload="auto"></audio>
+    <audio id="audio6" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站飞翔公园.mp3" preload="auto"></audio>
+    <audio id="audio7" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站三元里.mp3" preload="auto"></audio>
+    <audio id="audio8" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站广州火车站.mp3" preload="auto"></audio>
+    <audio id="audio9" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站越秀公园.mp3" preload="auto"></audio>
+    <audio id="audio10" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站纪念堂.mp3" preload="auto"></audio>
+    <audio id="audio11" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站公园前.mp3" preload="auto"></audio>
+    <audio id="audio12" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站海珠广场.mp3" preload="auto"></audio>
+    <audio id="audio13" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站市二宫.mp3" preload="auto"></audio>
+    <audio id="audio14" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站江南西.mp3" preload="auto"></audio>
+    <audio id="audio15" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站昌岗.mp3" preload="auto"></audio>
+    <audio id="audio16" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/关门.mp3" preload="auto"></audio>
+    <audio id="audio17" src="https://vip.123pan.cn/1829011389/azl/gb/临时停车.mp3" preload="auto"></audio>
+    <audio id="audio18" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站江泰路.mp3" preload="auto"></audio>
+    <audio id="audio19" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站东晓南.mp3" preload="auto"></audio>
+    <audio id="audio20" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站南洲.mp3" preload="auto"></audio>
+    <audio id="audio21" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站洛溪.mp3" preload="auto"></audio>
+    <audio id="audio22" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站南浦.mp3" preload="auto"></audio>
+    <audio id="audio23" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站东晓南.mp3" preload="auto"></audio>
+    <audio id="audio24" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站洛溪.mp3" preload="auto"></audio>
+    <audio id="audio25" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站南浦.mp3" preload="auto"></audio>
+    <audio id="audio26" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站会江.mp3" preload="auto"></audio>
+    <audio id="audio27" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站石壁.mp3" preload="auto"></audio>
+    <audio id="audio28" src="https://vip.123pan.cn/1829011389/azl/gb/l2/2/下站广州南站.mp3" preload="auto"></audio>
+    <!--分割线-->
+    <script>
+        //该js用于停止播放
+        function stopAllAudioPlayers() {
+            var audioPlayers = [
+                document.getElementById('audio1'),
+                document.getElementById('audio2'),
+                document.getElementById('audio3'),
+                document.getElementById('audio4'),
+                document.getElementById('audio5'),
+                document.getElementById('audio6'),
+                document.getElementById('audio7'),
+                document.getElementById('audio8'),
+                document.getElementById('audio9'),
+                document.getElementById('audio10'),
+                document.getElementById('audio11'),
+                document.getElementById('audio12'),
+                document.getElementById('audio13'),
+                document.getElementById('audio14'),
+                document.getElementById('audio15'),
+                document.getElementById('audio16'),
+                document.getElementById('audio17'),
+                // 以此类推，为其他音频文件添加类似的元素引用  
+            ];
+
+            for (var i = 0; i < audioPlayers.length; i++) {
+                audioPlayers[i].pause();
+            }
+        }
+
+        var stopAllAudio = document.getElementById('stopAllAudio');
+        stopAllAudio.addEventListener('click', stopAllAudioPlayers);
+
+    </script>
+    <!--底部信息-->
+    <footer>
+        <br>
+        <a href="httpss://beian.miit.gov.cn/" class="my-link">粤ICP备2023109504号-1</a>
+        <br>
+        <p style="font-size: 16px;">by:<a href="https://blog.zhengxian.top/" class="my-link">380AM-0204</a></p>
+        <a href="https://blog.zhengxian.top/index.php/bzqgxrz.html" class="my-link">更新日志</a>
+        <a href="https://blog.zhengxian.top/index.php/jz.html" class="my-link">捐赠</a>
+    </footer>
+
+</body>
+
+</html>

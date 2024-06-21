@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州地铁报站模拟器</title>
+    <style>
+        .center-link {
+            text-align: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /*
+            .dropdown-content a {
+            color: rgb(3, 167, 243);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        */
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .my-link {
+            font-size: 16px;
+            /* 或者你想要的任何大小 */
+        }
+
+        p {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            /* 移除默认的下划线 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* 添加下划线 */
+        }
+    </style>
+
+    <script>
+        // 获取按钮和下拉框元素  
+        var dropdown = document.getElementsByClassName("dropdown")[0];
+        var dropdownContent = document.getElementById("myDropdown");
+
+        // 添加点击事件到按钮上，展开下拉框  
+        dropdown.addEventListener("click", function () {
+            dropdownContent.style.display = "block";
+        });
+
+        //如下代码用于播放音频
+        function playAudio() {
+            var audio = document.getElementById('audio');
+            audio.play();
+        }
+        //分割线
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "httpss://hm.baidu.com/hm.js?83ab0d77ef66329a8336af52b80a2f83";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<body style="padding:5% 3% 3% 3%;background-image:url(https://blog.zhengxian.top/logo.jpeg);">
+    <h2>广州地铁报站模拟器</h2>
+
+    <a href="/l1/"><button>1号线</button></a>
+    <a href="/l2/"><button>2号线</button></a>
+    <!--底部信息-->
+    <footer>
+        <br>
+        <a href="httpss://beian.miit.gov.cn/" class="my-link">粤ICP备2023109504号-1</a>
+        <br>
+        <p style="font-size: 16px;">by:<a href="https://blog.zhengxian.top/" class="my-link">380AM-0204</a>
+        </p>
+        <a href="https://blog.zhengxian.top/index.php/bzqgxrz.html" class="my-link">更新日志</a>
+        <a href="https://blog.zhengxian.top/index.php/jz.html" class="my-link">捐赠</a>
+    </footer>
+
+</body>
+
+</html>
